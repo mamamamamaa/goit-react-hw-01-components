@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { Profile } from 'components/Profile/Profile';
-import user from 'components/Profile/user';
+import user from 'components/Profile/user.json';
 import { Statistics } from './Statistic/Statistics';
-import stats from 'components/Statistics/data';
+import stats from 'components/Statistics/data.json';
 import { FriendList } from './FriendList/FriendList';
 import friends from 'components/FriendList/friends.json';
 
@@ -31,5 +31,22 @@ Profile.propTypes = {
     followers: PropTypes.number.isRequired,
     views: PropTypes.number.isRequired,
     likes: PropTypes.number.isRequired,
+  }),
+};
+
+Statistics.propTypes = {
+  stats: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+  }),
+};
+
+FriendList.prototype = {
+  friends: PropTypes.shape({
+    avatar: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    isOnline: PropTypes.bool.isRequired,
+    id: PropTypes.number.isRequired,
   }),
 };
