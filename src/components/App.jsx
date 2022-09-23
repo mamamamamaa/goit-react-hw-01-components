@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Profile } from 'components/Profile/Profile';
 import user from 'components/Profile/user.json';
 import { Statistics } from './Statistic/Statistics';
-import stats from 'components/Statistics/data.json';
+import stats from 'components/Statistic/stats.json';
 import { FriendList } from './FriendList/FriendList';
 import friends from 'components/FriendList/friends.json';
 
