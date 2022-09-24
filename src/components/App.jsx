@@ -5,6 +5,8 @@ import { Statistics } from './Statistic/Statistics';
 import stats from 'components/Statistic/stats.json';
 import { FriendList } from './FriendList/FriendList';
 import friends from 'components/FriendList/friends.json';
+import { TransactionHistory } from './TransactionHistory/TransactionHistory';
+import transactions from 'components/TransactionHistory/transactions';
 
 export const App = () => {
   return (
@@ -18,6 +20,7 @@ export const App = () => {
       />
       <Statistics stats={stats} title="upload stats" />
       <FriendList friends={friends} />
+      <TransactionHistory transactions={transactions} />
     </>
   );
 };
@@ -35,18 +38,29 @@ Profile.propTypes = {
 };
 
 Statistics.propTypes = {
-  stats: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    percentage: PropTypes.number.isRequired,
-  }),
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }).isRequired
+  ).isRequired,
+  title: PropTypes.string,
 };
 
-FriendList.prototype = {
-  friends: PropTypes.shape({
-    avatar: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    isOnline: PropTypes.bool.isRequired,
-    id: PropTypes.number.isRequired,
-  }),
+FriendList.propTypes = {
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
+    }).isRequired
+  ),
+};
+
+TransactionHistory.propTypes = {
+  transactions: PropTypes.arrayOf(
+    PropTypes.objectOf(PropTypes.string).isRequired
+  ).isRequired,
 };
