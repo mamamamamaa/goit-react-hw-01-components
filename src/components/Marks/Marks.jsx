@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { List, Item, Text } from 'components/Stats/Stats.styled';
 
 export const Marks = ({ stats }) => {
@@ -11,4 +12,14 @@ export const Marks = ({ stats }) => {
       ))}
     </List>
   );
+};
+
+Marks.propTypes = {
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }).isRequired
+  ).isRequired,
 };

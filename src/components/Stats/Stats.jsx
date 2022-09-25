@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { List, Item, Text } from './Stats.styled';
 
 export const Stats = ({ stats }) => {
@@ -11,4 +12,12 @@ export const Stats = ({ stats }) => {
       ))}
     </List>
   );
+};
+
+Stats.propTypes = {
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }),
 };
